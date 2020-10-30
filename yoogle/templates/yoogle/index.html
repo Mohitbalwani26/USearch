@@ -1,0 +1,63 @@
+
+<html>
+  {% load static %}
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'yoogle/styles.css' %}" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Merriweather+Sans&display=swap"
+      rel="stylesheet">
+  </head>
+  <body>
+    <a id="logo" href="">
+      <img class="logo_img" src="{% static 'yoogle/logo.png' %}" alt="Logo"/>
+    </a>
+    <div>
+    <form method='POST' action="">
+        {% csrf_token %}
+        <input type="text" id="url-input" class="form-control" placeholder="enter youtube url" value="{{video_url}}" name="url"/>
+        <input type="text" id="keyword-input" class="form-control" placeholder="enter keyword" value="{{keyword}}" name="keyword"/>
+        <button id="search" class="btn"type="submit">Search</button>
+
+    </form>
+    {% if keyword and not error %}
+    <iframe width="1000" height="450" src="{{ video_embedded }}" allow="autoplay" id="vid" >
+    </iframe>
+    <div class="timestamps_class">
+      <h3 id="timestamps_title">Timestamps</h3>
+      {% for key,value in urls_array.items %}
+      <button class="btn" value={{value}}>{{key}}</button>
+      {% endfor %}
+    </div>
+    {% else %}
+
+    {% if error %}
+    <div class="alert alert-danger">
+      <a href="#" class="close" data-dismiss="alert">
+        &times;
+      </a>
+    
+      <strong>Sorry!</strong> {{error}}
+    </div>
+    <iframe width="1000" height="450" src="{{ video_embedded }}" allow="autoplay"  >
+      </iframe>
+    {% else %}
+    <h1 class="question">What is U-Search?</h1>
+    <h2>A simple platform which finds all the occurences of a keyword/phrase in the video.</h2>
+    <p></p>
+    {% endif %}
+    {% endif %}
+    </div>
+    <script type="text/javascript">
+      $(".btn").click(function (event) {
+        let key = this.value;
+        $('#vid').attr("src",key);
+      });
+    </script>
+   
+  </body>    
+</html>

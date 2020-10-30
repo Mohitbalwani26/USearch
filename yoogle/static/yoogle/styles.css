@@ -1,0 +1,62 @@
+body {
+  background-color: #e0d3d3;
+  font-family: "Merriweather", serif;
+}
+
+iframe {
+  margin-left: 120px;
+}
+#url-input,
+#keyword-input {
+  width: 50%;
+  margin-left: 20%;
+  margin-top: 10px;
+}
+#url-input {
+  margin-top: 30px;
+}
+#timestamps_title {
+  margin-left: 39%;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+#logo {
+  margin-top: 25px;
+  margin-left: 30%;
+}
+#logo,
+h1 {
+  display: inline-block;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-left: 5%;
+  font-family: "Merriweather Sans", sans-serif;
+}
+.alert {
+  padding-left: 30%;
+}
+#search {
+  margin-left: 41%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.question {
+  margin-left: 33%;
+  font-family: "Merriweather", serif;
+}
+.btn {
+  background-color: #a02c1e;
+  color: #f7f7f7;
+  margin-bottom: 5px;
+}
+.btn:hover {
+  color: #f7f7f7;
+}
+
+.timestamps_class {
+  margin-left: 10%;
+  margin-right: 10%;
+}

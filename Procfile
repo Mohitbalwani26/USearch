@@ -1,0 +1,1 @@
+web: gunicorn Usearch.wsgi --log-file -
